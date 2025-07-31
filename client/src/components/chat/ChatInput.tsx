@@ -57,31 +57,25 @@ export default function ChatInput({ onSendMessage, isLoading, quickActions }: Ch
       </div>
 
       {/* Input Area */}
-      <div className="flex items-end space-x-3">
-        <div className="flex-1 relative">
+      <div className="flex items-center space-x-3">
+        <div className="flex-1">
           <textarea
             ref={textareaRef}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Type your message here..."
-            className="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-[hsl(var(--tata-accent))] focus:border-transparent text-sm text-[hsl(var(--tata-text))] placeholder-gray-500 min-h-[48px] max-h-32"
+            className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-[hsl(var(--tata-accent))] focus:border-transparent text-sm text-[hsl(var(--tata-text))] placeholder-gray-500 min-h-[48px] max-h-32"
             rows={1}
             disabled={isLoading}
           />
-          {/* Attachment Button */}
-          <button className="absolute bottom-3 right-3 text-gray-400 hover:text-[hsl(var(--tata-accent))] transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-            </svg>
-          </button>
         </div>
         
         {/* Send Button */}
         <button
           onClick={handleSend}
           disabled={!message.trim() || isLoading}
-          className="bg-[hsl(var(--tata-accent))] hover:bg-blue-600 text-white rounded-2xl px-6 py-3 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--tata-accent))] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none h-12 flex items-center justify-center min-w-[48px]"
+          className="bg-[hsl(var(--tata-accent))] hover:bg-blue-600 text-white rounded-full p-3 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--tata-accent))] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none h-12 w-12 flex items-center justify-center flex-shrink-0"
         >
           {isLoading ? (
             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>

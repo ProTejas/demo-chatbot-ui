@@ -77,7 +77,7 @@ export default function Chatbot() {
 
   return (
     <div className="flex flex-col h-screen max-w-4xl mx-auto bg-white shadow-xl">
-      <ChatHeader title="Tata Capital Assistant" />
+      <ChatHeader title="TIA" />
       
       <div className="flex-1 overflow-hidden flex flex-col">
         {/* Welcome Message */}
