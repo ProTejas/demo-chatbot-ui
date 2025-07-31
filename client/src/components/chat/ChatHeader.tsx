@@ -4,7 +4,7 @@ interface ChatHeaderProps {
 
 export default function ChatHeader({ title }: ChatHeaderProps) {
   return (
-    <header className="bg-[hsl(var(--tata-primary))] text-white px-6 py-4 flex items-center justify-between shadow-md">
+    <header className="bg-[#005BAC] text-white px-6 py-4 flex items-center justify-between shadow-md">
       <div className="flex items-center space-x-3">
         {/* TIA Avatar */}
         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
