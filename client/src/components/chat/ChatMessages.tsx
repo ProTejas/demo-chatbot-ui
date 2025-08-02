@@ -1,6 +1,12 @@
 import { format } from "date-fns";
 import TypingIndicator from "./TypingIndicator";
-import type { Message } from "@shared/schema";
+
+interface Message {
+  id: string;
+  content: string;
+  role: "user" | "assistant";
+  timestamp: Date;
+}
 
 interface ChatMessagesProps {
   messages: Message[];
