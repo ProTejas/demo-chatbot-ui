@@ -1,3 +1,4 @@
+import React from "react";
 import { format } from "date-fns";
 import TypingIndicator from "./TypingIndicator";
 
@@ -40,8 +41,8 @@ export default function ChatMessages({ messages, isLoading, isTyping }: ChatMess
                 </svg>
               </div>
               <div className="flex-1">
-                <div className="bg-[hsl(var(--bot-bubble))] rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs md:max-w-md lg:max-w-lg" style={{ backgroundColor: '#d6d6d6' }}>
-                  <p className="text-[hsl(var(--tata-text))] text-sm leading-relaxed whitespace-pre-wrap">
+                <div className="!bg-blue-500 rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs md:max-w-md lg:max-w-lg">
+                  <p className="text-white text-sm leading-relaxed whitespace-pre-wrap">
                     {message.content}
                   </p>
                 </div>
@@ -67,11 +68,8 @@ export default function ChatMessages({ messages, isLoading, isTyping }: ChatMess
           ) : (
             <div className="flex items-start space-x-3 justify-end">
               <div className="flex-1 flex justify-end">
-                <div
-                  className="rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs md:max-w-md"
-                  style={{ backgroundColor: '#1961AC' }}
-                >
-                  <p className="text-white text-sm leading-relaxed">
+                <div className="!bg-gray-200 rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs md:max-w-md">
+                  <p className="text-gray-800 text-sm leading-relaxed">
                     {message.content}
                   </p>
                 </div>
