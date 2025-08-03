@@ -41,7 +41,7 @@ export default function ChatMessages({ messages, isLoading, isTyping }: ChatMess
                 </svg>
               </div>
               <div className="flex-1">
-                <div className="!bg-blue-500 rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs md:max-w-md lg:max-w-lg">
+                <div className="!bg-[#005BAC] rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs md:max-w-md lg:max-w-lg">
                   <p className="text-white text-sm leading-relaxed whitespace-pre-wrap">
                     {message.content}
                   </p>
