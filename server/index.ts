@@ -12,10 +12,13 @@ const startServer = async () => {
     });
 
     await server.listen();
-    console.log("[vite] Static UI server running on http://0.0.0.0:5000");
+    console.log("[vite] Static UI server running on http://localhost:5000");
   } catch (error) {
     console.error("Error starting server:", error);
   }
 };
 
 startServer();
+
+// Package.json script
+// "dev": "cross-env NODE_ENV=development tsx server/index.ts"

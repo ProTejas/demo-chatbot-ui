@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Capital Assistant - AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tata-primary': '#005BAC',
+                        'tata-accent': '#00AEEF',
+                        'tata-text': '#4B4B4B',
+                        'tata-bg': '#F8F9FA',
+                        'bot-bubble': '#E6F0FA',
+                        'user-bubble': '#DCF8C6'
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-tata-bg font-lato">
+    <!-- @COMPONENT: ChatbotContainer -->
+    <div class="flex flex-col h-screen max-w-4xl mx-auto bg-white shadow-xl">
+        
+        <!-- @COMPONENT: ChatHeader -->
+        <header class="bg-tata-primary text-white px-6 py-4 flex items-center justify-between shadow-md">
+            <div class="flex items-center space-x-3">
+                <!-- Tata Capital logo placeholder -->
+                <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-tata-primary font-bold text-sm">TC</span>
+                </div>
+                <h1 class="text-lg font-semibold">Tata Capital Assistant</h1>
+            </div>
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span class="text-sm opacity-90">Online</span>
+            </div>
+        </header>
+        <!-- @END_COMPONENT: ChatHeader -->
+
+        <!-- @COMPONENT: ChatArea -->
+        <div class="flex-1 overflow-hidden flex flex-col">
+            <!-- Welcome Message -->
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-tata-accent rounded-full flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-sm"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-tata-text">Welcome! I'm your Tata Capital Assistant.</p>
+                        <p class="text-xs text-gray-500">How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- @COMPONENT: ChatMessages -->
+            <div id="chatMessages" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+                <!-- @MAP: messages.map(message => ( -->
+                <!-- Bot Message -->
+                <div class="flex items-start space-x-3" data-mock="true">
+                    <div class="w-8 h-8 bg-tata-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-bot-bubble rounded-2xl rounded-tl-sm px-4 py-3 max-w-xs md:max-w-md">
+                            <p class="text-tata-text text-sm leading-relaxed">Hello! I'm here to help you with all your Tata Capital queries. Whether you need information about loans, investments, or account services, I'm ready to assist you. What would you like to know?</p>
+                        </div>
+                        <div class="flex items-center mt-1 space-x-2">
+                            <span class="text-xs text-gray-500">Just now</span>
+                            <button class="text-xs text-gray-400 hover:text-tata-accent transition-colors">
+                                <i class="fas fa-thumbs-up"></i>
+                            </button>
+                            <button class="text-xs text-gray-400 hover:text-tata-accent transition-colors">
+                                <i class="fas fa-thumbs-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Message -->
+                <div class="flex items-start space-x-3 justify-end" data-mock="true">
+                    <div class="flex-1 flex justify-end">
+                        <div class="bg-user-bubble rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs md:max-w-md">
+                            <p class="text-tata-text text-sm leading-relaxed">Hi! I'm interested in learning about personal loans. What are the interest rates and eligibility criteria?</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-tata-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user text-white text-xs"></i>
+                    </div>
+                </div>
+                <div class="flex justify-end">
+                    <span class="text-xs text-gray-500 mr-11">2 minutes ago</span>
+                </div>
+
+                <!-- Bot Response with Rich Content -->
+                <div class="flex items-start space-x-3" data-mock="true">
+                    <div class="w-8 h-8 bg-tata-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-bot-bubble rounded-2xl rounded-tl-sm px-4 py-3 max-w-lg">
+                            <p class="text-tata-text text-sm leading-relaxed mb-3">Great question! Here's information about our personal loans:</p>
+                            
+                            <div class="bg-white rounded-lg p-3 mb-3 border border-gray-200">
+                                <h4 class="font-semibold text-tata-primary text-sm mb-2">Interest Rates</h4>
+                                <ul class="text-xs text-tata-text space-y-1">
+                                    <li>• Starting from 10.99% p.a.*</li>
+                                    <li>• Rates vary based on profile</li>
+                                    <li>• No hidden charges</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-3 border border-gray-200">
+                                <h4 class="font-semibold text-tata-primary text-sm mb-2">Eligibility</h4>
+                                <ul class="text-xs text-tata-text space-y-1">
+                                    <li>• Age: 21-65 years</li>
+                                    <li>• Min salary: ₹25,000/month</li>
+                                    <li>• Work experience: 2+ years</li>
+                                </ul>
+                            </div>
+
+                            <p class="text-tata-text text-sm mt-3">Would you like me to help you check your eligibility or provide more details about any specific aspect?</p>
+                        </div>
+                        <div class="flex items-center mt-1 space-x-2">
+                            <span class="text-xs text-gray-500">1 minute ago</span>
+                            <button class="text-xs text-gray-400 hover:text-tata-accent transition-colors">
+                                <i class="fas fa-thumbs-up"></i>
+                            </button>
+                            <button class="text-xs text-gray-400 hover:text-tata-accent transition-colors">
+                                <i class="fas fa-thumbs-down"></i>
+                            </button>
+                            <button class="text-xs text-gray-400 hover:text-tata-accent transition-colors">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Follow-up -->
+                <div class="flex items-start space-x-3 justify-end" data-mock="true">
+                    <div class="flex-1 flex justify-end">
+                        <div class="bg-user-bubble rounded-2xl rounded-tr-sm px-4 py-3 max-w-xs md:max-w-md">
+                            <p class="text-tata-text text-sm leading-relaxed">That's helpful! Can you check my eligibility? I earn ₹45,000 per month and have 3 years of work experience.</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-tata-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user text-white text-xs"></i>
+                    </div>
+                </div>
+                <div class="flex justify-end">
+                    <span class="text-xs text-gray-500 mr-11">30 seconds ago</span>
+                </div>
+
+                <!-- @STATE: isTyping:boolean = true -->
+                <!-- Typing Indicator -->
+                <div id="typingIndicator" class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-tata-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div class="bg-bot-bubble rounded-2xl rounded-tl-sm px-4 py-3">
+                        <div class="flex space-x-1">
+                            <div class="w-2 h-2 bg-tata-accent rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-tata-accent rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                            <div class="w-2 h-2 bg-tata-accent rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+            <!-- @END_COMPONENT: ChatMessages -->
+        </div>
+        <!-- @END_COMPONENT: ChatArea -->
+
+        <!-- @COMPONENT: ChatInput -->
+        <div class="bg-white border-t border-gray-200 px-6 py-4">
+            <!-- Quick Actions -->
+            <div class="mb-3 flex flex-wrap gap-2">
+                <button class="px-3 py-1 text-xs bg-gray-100 text-tata-text rounded-full hover:bg-gray-200 transition-colors" data-event="click:insertQuickMessage">
+                    Check loan status
+                </button>
+                <button class="px-3 py-1 text-xs bg-gray-100 text-tata-text rounded-full hover:bg-gray-200 transition-colors" data-event="click:insertQuickMessage">
+                    Investment options
+                </button>
+                <button class="px-3 py-1 text-xs bg-gray-100 text-tata-text rounded-full hover:bg-gray-200 transition-colors" data-event="click:insertQuickMessage">
+                    Contact support
+                </button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="flex items-end space-x-3">
+                <div class="flex-1 relative">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Type your message here..." 
+                        class="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-tata-accent focus:border-transparent text-sm text-tata-text placeholder-gray-500 min-h-[48px] max-h-32"
+                        rows="1"
+                        data-bind="message"
+                        data-mock="true"
+                    ></textarea>
+                    <!-- Attachment Button -->
+                    <button class="absolute bottom-3 right-3 text-gray-400 hover:text-tata-accent transition-colors">
+                        <i class="fas fa-paperclip text-sm"></i>
+                    </button>
+                </div>
+                
+                <!-- Send Button -->
+                <button 
+                    id="sendButton"
+                    class="bg-tata-accent hover:bg-blue-600 text-white rounded-2xl px-6 py-3 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-tata-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed h-12 flex items-center justify-center min-w-[48px]"
+                    data-event="click:sendMessage"
+                    data-implementation="Should validate input and send message"
+                >
+                    <i class="fas fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="mt-2 text-center">
+                <p class="text-xs text-gray-500">
+                    Powered by AI • Your data is secure and encrypted
+                </p>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: ChatInput -->
+    </div>
+    <!-- @END_COMPONENT: ChatbotContainer -->
+
+    <script>
+        // Auto-resize textarea and scroll management
+        (function() {
+            const messageInput = document.getElementById('messageInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const sendButton = document.getElementById('sendButton');
+            const typingIndicator = document.getElementById('typingIndicator');
+
+            // Auto-resize textarea
+            function autoResize() {
+                messageInput.style.height = 'auto';
+                messageInput.style.height = Math.min(messageInput.scrollHeight, 128) + 'px';
+            }
+
+            messageInput.addEventListener('input', autoResize);
+            messageInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Auto-scroll to bottom
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Send message functionality
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                if (!message) return;
+
+                // TODO: Implement actual message sending logic
+                console.log('Sending message:', message);
+                
+                // Clear input
+                messageInput.value = '';
+                autoResize();
+                
+                // Show typing indicator
+                typingIndicator.style.display = 'flex';
+                scrollToBottom();
+                
+                // Hide typing indicator after delay (simulate bot response)
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    scrollToBottom();
+                }, 2000);
+            }
+
+            sendButton.addEventListener('click', sendMessage);
+
+            // Quick action buttons
+            document.querySelectorAll('[data-event^="click:insertQuickMessage"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    messageInput.value = this.textContent.trim();
+                    messageInput.focus();
+                    autoResize();
+                });
+            });
+
+            // Initial scroll to bottom
+            setTimeout(scrollToBottom, 100);
+
+            // Show typing indicator initially for demo
+            setTimeout(() => {
+                if (typingIndicator) {
+                    typingIndicator.style.display = 'none';
+                }
+            }, 3000);
+            
+        })();
+    </script>
+</body>
+</html>
