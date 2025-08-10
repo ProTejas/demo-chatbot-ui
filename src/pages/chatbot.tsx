@@ -5,7 +5,7 @@ import ChatInput from "../components/chat/ChatInput";
 
 // Add this declaration for Vite env variables
 interface ImportMetaEnv {
-  VITE_LLM_API: string;
+  VITE_OPENAI_API: string;
 }
 
 // Augment the global ImportMeta type for Vite
@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-const API_URL = import.meta.env.VITE_LLM_API;
+const API_URL = import.meta.env.VITE_OPENAI_API;
 
 interface Message {
   id: string;
@@ -51,7 +51,7 @@ export default function Chatbot() {
     fetch(`${API_URL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: content })
+      body: JSON.stringify({ message: content })
     })
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
