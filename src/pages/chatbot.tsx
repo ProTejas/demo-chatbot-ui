@@ -24,6 +24,7 @@ interface Message {
   timestamp: Date;
 }
 
+let userNum = Math.floor(Math.random() * 900) + 100;
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -35,7 +36,6 @@ export default function Chatbot() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
   const handleSendMessage = (content: string) => {
     setIsLoading(true);
     setIsTyping(true);
@@ -51,7 +51,7 @@ export default function Chatbot() {
     fetch(`${API_URL}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: content })
+      body: JSON.stringify({ userId: "tejasNbfc" + userNum, message: content })
     })
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
@@ -63,7 +63,7 @@ export default function Chatbot() {
         setTimeout(() => {
           const botResponse: Message = {
             id: (Date.now() + 1).toString(),
-            content: data.reply || "Sorry, I didn't understand that.",
+            content: data.response || "Sorry, I didn't understand that.",
             role: "assistant",
             timestamp: new Date(),
           };
