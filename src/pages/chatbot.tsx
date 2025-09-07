@@ -112,7 +112,7 @@ export default function Chatbot() {
               </svg>
             </div>
             <div>
-              <p className="text-sm text-[hsl(var(--tata-text))]">Welcome! I'm your Tata Capital Assistant.</p>
+              <p className="text-sm text-[hsl(var(--tata-text))]">Welcome! I'm your Tejas Capital Assistant.</p>
               <p className="text-xs text-gray-500">How can I help you today?</p>
             </div>
           </div>

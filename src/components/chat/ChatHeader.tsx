@@ -18,7 +18,7 @@ export default function ChatHeader({ title }: ChatHeaderProps) {
           </div>
         </div>
         <div>
-          <h1 className="text-lg font-semibold">{title}</h1>
+          <h1 className="text-lg font-semibold">Tejas AI</h1>
           <p className="text-xs opacity-80">Your Virtual Assistant</p>
         </div>
       </div>
